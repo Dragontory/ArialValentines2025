@@ -17,3 +17,20 @@ noButton.addEventListener("mouseover", function (e) {
     noButton.style.left = randomX + "px";
     noButton.style.top = randomY + "px";
 });
+
+//If she manages to click no, it will alert her to try again
+noButton.addEventListener("click", function (e) {
+    alert("Try again!");
+
+    //Reset location
+    noButton.style.left = "75%";
+    noButton.style.top = "50%";
+  });
+  
+  //When click "Yes," transition to the celebration screen.
+  yesButton.addEventListener("click", function (e) {
+    questionScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
+    launchBalloons();
+    startCountdown();
+  });
