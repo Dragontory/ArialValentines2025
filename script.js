@@ -50,7 +50,7 @@ function launchBalloons() {
         //Randomized positions
         const leftPos = Math.random() * 100;
         balloonContainer.style.left = leftPos + "%";
-        balloonContainer.style.bottom = "-100px";
+        balloonContainer.style.bottom = "0px";
 
         //Balloon element
         const balloon = document.createElement("div");
@@ -59,10 +59,16 @@ function launchBalloons() {
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         balloon.style.background = randomColor;
         //Random duration and delay
-        const duration = 4 + Math.random() * 4;
-        balloon.style.animationDuration = duration + "s";
+        // const duration = 4 + Math.random() * 4;
+        // balloon.style.animationDuration = duration + "s";
+        // const delay = Math.random() * 5;
+        // balloon.style.animationDelay = delay + "s";
+
+        //Balloon Container random duration and delay animation
+        const duration = 4 + Math.random() * 4; 
+        balloonContainer.style.animationDuration = duration + "s";
         const delay = Math.random() * 5;
-        balloon.style.animationDelay = delay + "s";
+        balloonContainer.style.animationDelay = delay + "s";
 
         //String element
         const string = document.createElement("div");
