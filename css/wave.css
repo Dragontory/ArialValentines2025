@@ -1,0 +1,18 @@
+/* wave.css */
+.wave-text span {
+    display: inline-block;
+    animation: wave 10s infinite;
+  }
+.wave-text-fast span {
+    display: inline-block;
+    animation: wave 3s infinite;
+  }
+  
+  @keyframes wave {
+    0%   { transform: translateY(0); }
+    20%  { transform: translateY(-10px); }
+    40%  { transform: translateY(0); }
+    60%  { transform: translateY(10px); }
+    80%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+  }

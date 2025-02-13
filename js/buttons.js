@@ -10,6 +10,7 @@ noButton.addEventListener("mouseover", function (e) {
     const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
     const audio = new Audio(randomSound);
     audio.play();
+    audio.volume = 1;
 
     const container = document.querySelector(".button-container");
     const containerRect = container.getBoundingClientRect();
@@ -22,6 +23,7 @@ noButton.addEventListener("mouseover", function (e) {
     const randomY = Math.random() * maxY;
     noButton.style.left = randomX + "px";
     noButton.style.top = randomY + "px";
+    window.myloveAudio.resume();
 });
 
 //If she manages to click no, it will alert her to try again
@@ -37,6 +39,25 @@ noButton.addEventListener("click", function (e) {
   yesButton.addEventListener("click", function (e) {
     questionScreen.classList.add("hidden");
     resultScreen.classList.remove("hidden");
+    if (window.myloveAudio) {
+      window.myloveAudio.pause();
+      window.myloveAudio.currentTime = 0;
+    }
+
+    // Play lesgo.mp3 once (2 seconds duration)
+    let lesgoAudio = new Audio("lesgo.mp3");
+    lesgoAudio.play().catch((err) => console.error("Lesgo play error:", err));
+
+    // After 2 seconds, start fettywap.mp3 on loop
+    setTimeout(() => {
+      let fettyAudio = new Audio("fettywap.mp3");
+      fettyAudio.loop = true;
+      fettyAudio.play().catch((err) => console.error("Fettyplay error:", err));
+      window.fettyAudio = fettyAudio; 
+    }, 2000);
+    setTimeout(() => {
+      startFloatingObjects();
+    }, 12000);
     launchBalloons();
     startCountdown();
   });

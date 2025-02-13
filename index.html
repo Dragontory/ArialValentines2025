@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/animation.css" />
+        <link rel="stylesheet" href="css/wave.css" />
+        <link rel="stylesheet" href="css/floating.css" />
       </head>
 <body>
     <!-- Landing Screen -->
@@ -17,7 +19,7 @@
 
     <!-- Question Screen -->
     <div id="question" class="screen hidden">
-        <h1>BOOGUS, Will you be my Valentine? :):)</h1>
+        <h1 class="wave-text">BOOGUS, Will you be my Valentine? :):)</h1>
         <div class="button-container">
           <button id="yesButton" class="btn yes">Yes</button>
           <button id="noButton" class="btn no">No</button>
@@ -27,7 +29,7 @@
     <div id="resultScreen" class="screen hidden">
         <!-- Celebration Screen -->
         <div id="balloons"></div>
-        <h1>LESGOOOOOOOOOO</h1>
+        <h1 class="wave-text-fast">LESGOOOOOOOOOO</h1>
         <div id="countdown"></div>
         <div class="gallery">
           <!-- Placeholder for images -->
@@ -41,5 +43,7 @@
     <script src="js/balloons.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/landing.js"></script>
+    <script src="js/wave.js"></script>
+    <script src="js/floating.js"></script>
 </body>
 </html>
