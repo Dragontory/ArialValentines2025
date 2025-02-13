@@ -41,7 +41,7 @@
   .balloon-container {
     position: absolute;
     width: 40px;
-    height: 100px; /* 50px for balloon + space for visual separation */
+    height: 100px; 
     animation: rise linear infinite;
   }
   
@@ -59,19 +59,36 @@
     }
   }
 
-  /* Pop Animation */
+  /* Regular balloon pop */
   .pop {
     animation: pop 0.3s forwards;
   }
-
   @keyframes pop {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1.5);
-      opacity: 0;
-    }
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  /* Heart balloon pop (preserving the rotation) */
+  .pop-heart {
+    animation: pop-heart 0.3s forwards;
+  }
+  @keyframes pop-heart {
+    0% { transform: rotate(-45deg) scale(1); opacity: 1; }
+    100% { transform: rotate(-45deg) scale(1.5); opacity: 0; }
+  }
+
+  /* --- Shard Styling --- */
+  .shard {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor; /* Inherit the balloon's color */
+    border-radius: 50%;
+    opacity: 1;
+    animation: shard-pop 0.5s forwards;
+  }
+  @keyframes shard-pop {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0.5); opacity: 0; }
   }
     

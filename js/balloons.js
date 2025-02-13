@@ -15,7 +15,7 @@ const popSound = new Audio('pop.mp3');
         //Randomized positions
         const leftPos = Math.random() * 100;
         balloonContainer.style.left = leftPos + "%";
-        balloonContainer.style.bottom = "-100px";
+        balloonContainer.style.bottom = "-200px";
 
         // Set random duration and delay on the container for the rise animation
         const duration = 4 + Math.random() * 4;
@@ -35,11 +35,32 @@ const popSound = new Audio('pop.mp3');
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         balloon.style.background = randomColor;
 
-        // Add a click listener to "pop" the balloon
-        balloon.addEventListener("click", function () {
+        // Add a click listener to pop the balloon
+        balloon.addEventListener("click", function (e) {
+          e.stopPropagation();
+          // Play the pop sound
           popSound.currentTime = 0;
           popSound.play();
-          balloon.classList.add("pop");
+    
+          for (let j = 0; j < 4; j++) {
+            let shard = document.createElement("div");
+            shard.classList.add("shard");
+            let tx = (Math.random() - 0.5) * 100; // between -50 and 50px
+            let ty = (Math.random() - 0.5) * 100; // between -50 and 50px
+            shard.style.setProperty('--tx', tx + 'px');
+            shard.style.setProperty('--ty', ty + 'px');
+            shard.style.left = '50%';
+            shard.style.top = '50%';
+            balloonContainer.appendChild(shard);
+          }
+    
+          // Apply a pop animation.
+          if (balloon.classList.contains("heart-balloon")) {
+            balloon.classList.add("pop-heart");
+          } else {
+            balloon.classList.add("pop");
+          }
+          // Remove the entire container after the pop animation ends
           balloon.addEventListener("animationend", function () {
             balloonContainer.remove();
           });
