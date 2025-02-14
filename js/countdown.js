@@ -10,7 +10,8 @@
       const diff = valentineDate - now;
       if (diff <= 0) {
         clearInterval(timer);
-        countdownElement.innerHTML = "Happy Valentine's Day!";
+        countdownElement.classList.add("wave-text-fast2");
+        countdownElement.innerHTML = "Happy Valentine's Day ARIAL <3<3 :):) !!!";
       } else {
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);

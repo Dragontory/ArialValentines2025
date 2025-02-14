@@ -7,6 +7,12 @@
     display: inline-block;
     animation: wave 3s infinite;
   }
+
+  .wave-text-fast2 {
+    display: inline-block;
+    font-family: 'Courgette';
+    animation: wave 3s infinite;
+  }
   
   @keyframes wave {
     0%   { transform: translateY(0); }
